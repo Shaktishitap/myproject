@@ -8,21 +8,21 @@ pipeline {
                 checkout scm
 
                 // Build Docker image
-                sh 'docker build -t dockerfile .'
+                sh 'docker build -t Dockerfile .'
             }
         }
 
         stage('Test') {
             steps {
                 // Run tests inside Docker container
-                sh 'docker run dockerfile npm test'
+                sh 'docker run Dockerfile npm test'
             }
         }
 
         stage('Deploy') {
             steps {
                 // Push Docker image to registry
-                sh 'docker push dockerfile'
+                sh 'docker push Dockerfile'
 
                 // Deploy to production
                 sh 'kubectl apply -f your_deployment.yaml'
