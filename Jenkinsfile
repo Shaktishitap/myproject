@@ -8,7 +8,7 @@ pipeline {
                 checkout scm
 
                 // Build Docker image
-                sh 'docker build -t Dockerfile .'
+                sh 'docker build -t dockerfile .'
             }
         }
 
